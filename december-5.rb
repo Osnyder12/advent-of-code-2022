@@ -1,34 +1,40 @@
-require 'pry'
-
 number_of_crates = File.readlines('december-5-stack.txt').first.length/4
 crate_hash = Hash.new
 (1..number_of_crates).each {|count| crate_hash[count] = []}
 
 File.readlines('december-5-stack.txt').each do |line|
-  boxes = line.split('')
-  crate = 1
-  index = 1
-  while index < line.length do
-    letter = boxes[index]
+  unless line.include?('1')
+    boxes = line.split('')
+    crate = 1
+    index = 1
+    while index < line.length do
+      letter = boxes[index]
 
-    crate_hash[crate] << letter 
-  index += 4
-  crate += 1
+      crate_hash[crate] << letter unless letter == " "
+    index += 4
+    crate += 1
+    end
   end
 end
 
-final = File.readlines('december-5-moves.txt', chomp: true).each do |line|
+File.readlines('december-5-moves.txt', chomp: true).each do |line|
   moves_array = line.delete('movefromto').split(' ')
+
+  number_to_move = moves_array[0].to_i
+  starting_row_number = moves_array[1].to_i
+  ending_row_number = moves_array[2].to_i
+
+  starting_row = crate_hash[starting_row_number]
+  ending_row = crate_hash[ending_row_number]
+  letters_to_move = starting_row.shift(number_to_move.to_i).reverse
+
+  new_row = letters_to_move.concat(ending_row)
+
+  crate_hash[ending_row_number] = new_row
 end
 
-#  1st number == number to move
-#  2nd number == starting row
-#  3rd number == ending row
+final = crate_hash.values.map do |crate|
+  crate.first
+end
 
-
-
-
-
-
-
-
+puts final.join
