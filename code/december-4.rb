@@ -6,8 +6,11 @@ final = File.open('data/december-4.txt').map do |line|
   one = shifts[0].split('-')
   two = shifts[1].split('-')
 
-  next unless (one[0]..one[1]).cover?(two[0]..two[1]) || (two[0]..two[1]).cover?(one[0]..one[1])
-  1
+  if one[0].to_i >= two[0].to_i && one[1].to_i <= two[1].to_i
+    1
+  elsif two[0].to_i >= one[0].to_i && two[1].to_i <= one[1].to_i
+    1
+  end
 end
 
 puts final.compact.sum
