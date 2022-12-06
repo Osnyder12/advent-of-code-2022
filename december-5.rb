@@ -1,8 +1,8 @@
-number_of_crates = File.readlines('december-5-stack.txt').first.length/4
+number_of_crates = File.readlines('data/december-5-stack.txt').first.length/4
 crate_hash = Hash.new
 (1..number_of_crates).each {|count| crate_hash[count] = []}
 
-File.readlines('december-5-stack.txt').each do |line|
+File.readlines('data/december-5-stack.txt').each do |line|
   unless line.include?('1')
     boxes = line.split('')
     crate = 1
@@ -17,7 +17,7 @@ File.readlines('december-5-stack.txt').each do |line|
   end
 end
 
-File.readlines('december-5-moves.txt', chomp: true).each do |line|
+File.readlines('data/december-5-moves.txt', chomp: true).each do |line|
   moves_array = line.delete('movefromto').split(' ')
 
   number_to_move = moves_array[0].to_i

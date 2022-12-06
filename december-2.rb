@@ -7,7 +7,7 @@ SCORE_FOR_SHOOT = {
   Z: 3
 }
 
-final = File.open('december-2.txt').map do |line|
+final = File.open('data/december-2.txt').map do |line|
   line.strip!
   hand = line.split(' ').last
   score = SCORE_FOR_SHOOT[hand.to_sym]

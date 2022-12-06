@@ -1,4 +1,4 @@
-final = File.open('december-4.txt').map do |line|
+final = File.open('data/december-4.txt').map do |line|
   line.strip!
   
   shifts = line.split(',')

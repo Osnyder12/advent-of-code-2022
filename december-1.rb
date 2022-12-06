@@ -2,7 +2,7 @@ array = []
 
 sum = 0
 
-File.open('december-1.txt').each do |line|
+File.open('data/december-1.txt').each do |line|
   if line != "\n"
     sum += line.to_i
   else

@@ -1,6 +1,6 @@
 priority = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-final = File.open('december-3.txt').map do |line|
+final = File.open('data/december-3.txt').map do |line|
   compartments = line.chars.each_slice(line.length/2).map(&:join)
 
   c1 = compartments[0].split('').uniq
