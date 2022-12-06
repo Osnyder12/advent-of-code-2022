@@ -1,4 +1,3 @@
-require 'pry'
 OPPONENT_WINS = ['A Z', 'B X', 'C Y']
 I_WIN = ['C X', 'A Y', 'B Z']
 TIE = ['A X', 'B Y', 'C Z']

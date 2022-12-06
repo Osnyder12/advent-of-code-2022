@@ -1,3 +1,5 @@
+require 'pry'
+
 priority = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 final = File.open('data/december-3.txt').map do |line|
@@ -13,4 +15,19 @@ final = File.open('data/december-3.txt').map do |line|
   priority.index(wrong_value) + 1
 end
 
-puts final.sum
+puts "Part one Answer: #{final.sum}"
+
+# ==========
+# Part 2
+# ==========
+sum = 0
+
+File.readlines('data/december-3.txt', chomp: true).each_slice(3) do |line|
+  c1, c2, c3 = line
+
+  authorization_letter = c1.split('') & c2.split('') & c3.split('')
+
+  sum += (priority.index(authorization_letter.first) + 1)
+end
+
+puts "Part two Answer: #{sum}"

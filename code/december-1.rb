@@ -1,5 +1,3 @@
-require 'pry'
-
 array = []
 
 sum = 0
