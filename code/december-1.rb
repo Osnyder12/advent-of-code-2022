@@ -1,3 +1,5 @@
+require 'pry'
+
 array = []
 
 sum = 0
@@ -11,4 +13,10 @@ File.open('data/december-1.txt').each do |line|
   end
 end
 
-puts array.max
+puts "Part one Answer: #{array.max}"
+
+# ==========
+# Part 2
+# ==========
+
+puts "Part two Answer: #{array.sort.reverse[0..2].sum}"
