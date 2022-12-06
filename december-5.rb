@@ -27,6 +27,7 @@ File.readlines('december-5-moves.txt', chomp: true).each do |line|
   starting_row = crate_hash[starting_row_number]
   ending_row = crate_hash[ending_row_number]
   letters_to_move = starting_row.shift(number_to_move.to_i).reverse
+  # part 2: letters_to_move = starting_row.shift(number_to_move.to_i)
 
   new_row = letters_to_move.concat(ending_row)
 
@@ -38,3 +39,7 @@ final = crate_hash.values.map do |crate|
 end
 
 puts final.join
+
+# Part 2:
+
+# Remove the .reverse from the letters_to_move variable on line 29
